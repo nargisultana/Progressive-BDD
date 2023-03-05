@@ -1,6 +1,5 @@
 package progressive.bdd.objects;
 
-import static progressive.bdd.common.CommonActions.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,17 +7,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import progressive.bdd.common.CommonActions;
+
 public class GetAQuate {
+	CommonActions actions;
 
 	public GetAQuate(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		actions = new CommonActions(driver);
 	}
 
 	@FindBy(xpath = "//input[@id='zipCode_overlay_subproducts']")
 	WebElement insertZipCodElement;
 
 	public void insertZipCode(String zip) {
-		insert(insertZipCodElement, zip);
+		actions.insert(insertZipCodElement, zip);
 
 	}
 
@@ -26,7 +29,7 @@ public class GetAQuate {
 	WebElement getAQuote;
 
 	public void clickGetAQuote() {
-		click(getAQuote);
+	actions.click(getAQuote);
 	}
 
 }

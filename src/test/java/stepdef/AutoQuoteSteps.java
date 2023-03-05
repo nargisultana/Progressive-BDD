@@ -1,27 +1,19 @@
 package stepdef;
 
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import progressive.bdd.base.BaseClass;
 
+
 public class AutoQuoteSteps extends BaseClass {
 
-	@Given("Validating landing page Title")
-	public void validating_landing_page_title() {
-		homePage.validateSelectTitle("Select a product to quote");
-
-	}
-
-	@Given("click start quote button")
-	public void click_start_quote_button() {
-		homePage.clickStartNewQuote();
-
-	}
+ 
+	
 
 	@When("insert zip code field {string}")
-	public void insert_zip_code_field(String string) {
-		getAQuate.insertZipCode("11219");
+	public void insert_zip_code_field(String zipcode) {
+		getAQuate.insertZipCode(zipcode);
 	}
 
 	@When("click get a quote button")
@@ -31,7 +23,7 @@ public class AutoQuoteSteps extends BaseClass {
 	}
 
 	@When("insert home address {string}")
-	public void insert_home_address(String string) {
+	public void insert_property_address(String string) {
 		addressPage.insertPropertyAddress("244 Dahill road, Brooklyn ,NY -11219");
 
 	}
@@ -43,9 +35,11 @@ public class AutoQuoteSteps extends BaseClass {
 	}
 
 	@Then("insert property address {string}")
-	public void insert_property_address(String string) {
+	public void insert_home_address(String string) {
 		propertyAddress.insertPropertyAddress("244 Dahill road");
 
 	}
+	
+
 
 }
